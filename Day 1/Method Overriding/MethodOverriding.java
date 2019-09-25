@@ -1,5 +1,5 @@
 class Parent {
-    int value = 45;
+    static int value = 45;
 
     public void get_value() {
         System.out.println("parent: "+value);
