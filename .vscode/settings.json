@@ -1,0 +1,3 @@
+{
+    "java.checkstyle.configuration": "${workspaceFolder}\\Day 1\\Super KeyWord\\checkstyle.xml",
+}
