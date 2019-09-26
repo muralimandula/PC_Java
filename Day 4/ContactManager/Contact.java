@@ -1,18 +1,27 @@
 /**
- * This class discusses about the Contact Object. The attributes of the contact object
- * are as follows.
+ * This class discusses about the Contact Object.
+ * The attributes of the contact object are as follows.
  * name : Name of the person / friend.
  * email : mail id of the person / friend.
  * phoneNumber : Phone Number of the person / friend.
- * 
+ *
  * @author Siva Sankar
  */
 
 //  Your code goes here... For Contact class
 class Contact {
+    /**.
+     * class attributes
+     */
     private String name;
-    private String email;
-    private String phoneNumber;
+    /**.
+     * class attributes
+     */
+    private String  email;
+    /**.
+     * class attributes
+     */
+    private String  phoneNumber;
 
     Contact(final String n, final String e, final String p) {
         this.name = n;
@@ -34,11 +43,13 @@ class Contact {
 
 
     public String toString() {
-        return "{ Name = " + this.name + ", Email = " + this.email + ", Phone Number = " + this.phoneNumber + " }";
+        return "{ Name = " + this.name + ", Email = " + this.email
+                            + ", Phone Number = " + this.phoneNumber + " }";
     }
 
-    /**
+    /**.
      * Setters
+     * @param toSet name to set
      */
     public void setName(final String toSet) {
         this.name = toSet;
