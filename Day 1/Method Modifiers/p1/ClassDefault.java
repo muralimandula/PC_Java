@@ -6,7 +6,7 @@ public class ClassDefault {
         System.out.println("Im a static block.");
     }
 
-    public void Imdefault() {
+    void Imdefault() {
         System.out.println();
         System.out.println("I'm a 'Imdefault()', a default method from package, p1");
         System.out.println();

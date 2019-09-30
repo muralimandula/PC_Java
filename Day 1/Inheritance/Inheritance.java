@@ -1,5 +1,5 @@
 class GrandFather {
-    String documents = " Inti pathral";
+    String documents = "";
 
     GrandFather() {
 
