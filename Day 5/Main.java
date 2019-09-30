@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 class Main {
@@ -10,7 +11,7 @@ class Main {
 
         boolean flag = true;
         do {
-            System.out.println("1. ADD\t2. REMOVE\t3. UPDATE\t4. DISPLAY ALL\t5. DISPLAY PENDING\t6. EXIT");
+            System.out.println("1. ADD\t2. REMOVE\t3. UPDATE\t4. DISPLAY ALL\t5. DISPLAY PENDING\t6. DISPLAY BY DATE\t7. EXIT");
 
             String choice = scan.nextLine();            
             switch (choice) {
@@ -22,18 +23,22 @@ class Main {
                     System.out.print("Enter task description \t : ");
                     String d = scan.nextLine();
 
+                    /**
+                     * Date 
+                     */
                     System.out.print("Enter Due Date(dd/mm/yyyy) \t : ");
                     String dd = scan.nextLine();
+                    Date inputDate = parseDate(dd);
 
-                    System.out.print("Enter the Status \t : ");
-                    String s = scan.nextLine();
-
-                    Task toAdd = new Task(t, d, dd, s);
-
-                    tm.addTask(toAdd);
-
-                    // System.out.println(" \t : ");
-                    // String = scan.nextLine();
+                    if (inputDate != null){
+                        System.out.print("Enter the Status \t : ");
+                        String s = scan.nextLine();
+                        Task toAdd = new Task(t, d, inputDate, s);
+                        tm.addTask(toAdd);
+                    } else {
+                        System.out.println("Invalid Date format.");
+                    }
+ 
                     break;
 
                 case "2":
@@ -60,14 +65,39 @@ class Main {
                 case "5":
                     tm.displayAllPendingIncomplete();
                     break;
-                    
+
                 case "6":
+                    System.out.println("Enter the date(dd/mm/yyyy) : ");
+                    String dd2 = scan.nextLine();
+                    Date inputDate2 = parseDate(dd2);
+                    tm.displayOnDate(inputDate2);
+
+                    break;
+                    
+                case "7":
                     flag = false;
                 default:
                     break;
             }
         } while(flag);
 
+
+
         scan.close();
+    }
+
+
+    public static Date parseDate(String dateString) {
+
+        String[] dates = dateString.split("/");
+        try {
+            Date inputDate = new Date(Integer.parseInt(dates[2]), Integer.parseInt(dates[1]), Integer.parseInt(dates[0]));
+            return inputDate;
+            
+        } catch (Exception e) {
+            System.out.println("Invalid Date");
+            return null;
+        }
+        
     }
 }

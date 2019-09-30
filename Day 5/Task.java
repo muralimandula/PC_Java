@@ -1,11 +1,14 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 class Task {
     private String taskName;
     private String description;
-    private String dueDate;
+    private Date dueDate;
     private String status;
 
     
-    Task(final String t, final String d, final String dd, final String s) {
+    Task(final String t, final String d, final Date dd, final String s) {
         this.taskName = t;
         this.description = d;
         this.dueDate = dd;
@@ -13,7 +16,7 @@ class Task {
     }
 
     public String displayTask() {
-        return this.taskName + "\t" +  this.description + "\t" +  this.dueDate + "\t" +  this.status ;
+        return this.taskName + "\t" +  this.description + "\t" +  (this.dueDate.toString()).substring(0,10) + "\t" +  this.status ;
     }
 
     public String getTaskName() {
@@ -32,11 +35,11 @@ class Task {
         this.description = description;
     }
 
-    public String getDueDate() {
+    public Date getDueDate() {
         return this.dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 

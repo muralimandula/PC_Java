@@ -1,3 +1,5 @@
+import java.util.Date;
+
 class TaskManager {
     Task[] tasksArr;
     int size;
@@ -68,11 +70,16 @@ class TaskManager {
     }
 
 
-    public void displayOnDate(String date) {
-        for (Task var : tasksArr) {
-            if (var.getDueDate() == date) {
-                System.out.println(var.displayTask());
+    public void displayOnDate(Date date1Date) {
+        int countOnDate = 0;
+        for (int i = 0; i < size; i++) {
+            if (tasksArr[i].getDueDate().equals(date1Date)) {
+                countOnDate++;
+                System.out.println(tasksArr[i].displayTask());
             }
+        }
+        if (countOnDate == 0) {
+            System.out.println("No tasks found on the given date.");
         }
     }
     
